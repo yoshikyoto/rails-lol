@@ -1,5 +1,11 @@
 # rails-lol
 
+## Install Rails
+
+```
+$ gem install rails
+```
+
 ## Create Rails Application（通常は行わなくていい）
 
 ```
