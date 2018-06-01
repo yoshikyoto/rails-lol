@@ -1,10 +1,10 @@
-require_dependency '../models/api/riot_games/static_api_client'
+require_dependency '../models/api/riot_games/static_data_api'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    api = StaticApiClient.new
+    api = StaticDataApi.new
     render html: api.get
   end
 end
