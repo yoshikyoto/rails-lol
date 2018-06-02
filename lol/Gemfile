@@ -29,8 +29,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
 # Library for Http Request
-gem 'faraday', '~> 0.15.2'
+gem 'faraday', '0.15.2'
+# GraphQL Server のためのライブラリ
+gem 'graphql', '1.8.1'
 
 
 # Use Capistrano for deployment
