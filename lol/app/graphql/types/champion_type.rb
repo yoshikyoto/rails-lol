@@ -3,6 +3,7 @@ Types::ChampionType = GraphQL::ObjectType.define do
   field :name, types.String do
   	description 'チャンピオンの名前'
     resolve -> (obj, args, ctx) {
+      puts obj
       return 'ウーコン'
     }
   end

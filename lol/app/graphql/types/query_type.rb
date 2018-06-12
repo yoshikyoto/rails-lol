@@ -15,7 +15,8 @@ Types::QueryType = GraphQL::ObjectType.define do
     description 'すべてのチャンピオンの情報を返す'
     resolve -> (obj, args, ctx) {
       repo = LoLRepository.new()
-      return repo.champions("8.11.1")
+      puts repo.champions("8.11.1")
+      return repo.champions("8.11.1")['data']
     }
   end
 

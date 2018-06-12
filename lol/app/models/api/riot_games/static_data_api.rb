@@ -15,7 +15,7 @@ class StaticDataApi
       request.url '/lol/static-data/v3/versions'
       request.headers['X-Riot-Token'] = @token
     end
-    puts response.body
+    # puts response.body
     JSON.parse(response.body)
   end
 
@@ -29,7 +29,7 @@ class StaticDataApi
         champListData: 'all',
       }
     end
-    puts response.body
+    # puts response.body
     JSON.parse(response.body)
   end
 end
