@@ -10,16 +10,15 @@ class StaticDataApi
   end
 
   def versions
-    # puts @client.get '/versions'
     response = @client.get do |request|
       request.url '/lol/static-data/v3/versions'
       request.headers['X-Riot-Token'] = @token
     end
-    # puts response.body
     JSON.parse(response.body)
   end
 
   def champions(version)
+    puts 'request /champions'
     response = @client.get do |request|
       request.url '/lol/static-data/v3/champions'
       request.headers['X-Riot-Token'] = @token
@@ -29,7 +28,6 @@ class StaticDataApi
         champListData: 'all',
       }
     end
-    # puts response.body
     JSON.parse(response.body)
   end
 end

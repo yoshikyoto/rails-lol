@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def index
     repo = LoLRepository.new()
     champions = repo.champions '8.11.1'
-    puts champions
+    # puts champions
     render html: champions
   end
 end
