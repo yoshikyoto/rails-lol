@@ -28,7 +28,7 @@ $ ./bin/rails server
 
 ## Test
 
-``
+```
 $ ./bin/rails test
 ```
 
