@@ -18,7 +18,6 @@ class StaticDataApi
   end
 
   def champions(version)
-    puts 'request /champions'
     response = @client.get do |request|
       request.url '/lol/static-data/v3/champions'
       request.headers['X-Riot-Token'] = @token
@@ -27,6 +26,12 @@ class StaticDataApi
         version: version,
         champListData: 'all',
       }
+    end
+    case response.status
+      when 400...599
+      puts '/champions Error'
+      puts 'ErrorCode: ' + response.status.to_s
+      puts 'ResponseBody: ' + response.body
     end
     JSON.parse(response.body)
   end
