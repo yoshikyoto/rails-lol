@@ -20,12 +20,6 @@ class StaticDataApi
     response = @client.get do |request|
       request.url '/cdn/' + version + '/data/' + region + '/champion.json'
     end
-    case response.status
-      when 400...599
-      puts '/champions Error'
-      puts 'ErrorCode: ' + response.status.to_s
-      puts 'ResponseBody: ' + response.body
-    end
     JSON.parse(response.body)
   end
 end
