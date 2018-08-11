@@ -13,10 +13,11 @@ Types::QueryType = GraphQL::ObjectType.define do
 
   field :champions, types[Types::ChampionType] do
     description 'すべてのチャンピオンの情報を返す'
+    argument :version, types.String
     resolve -> (obj, args, ctx) {
       repo = LoLRepository.new()
-      puts repo.champions("8.11.1")
-      return repo.champions("8.11.1")['data']
+      version = args[:version]
+      return repo.champions(version)['data']
     }
   end
 
