@@ -2,7 +2,7 @@ require_dependency '../models/api/riot_games/static_data_api'
 
 class LoLRepository
   def initialize()
-    @static_data_api = StaticDataApi.new('jp1')
+    @static_data_api = StaticDataApi.new()
   end
 
   def versions()
@@ -10,6 +10,6 @@ class LoLRepository
   end
 
   def champions(version)
-    @static_data_api.champions(version)
+    @static_data_api.champions(version, 'ja_JP')
   end
 end
