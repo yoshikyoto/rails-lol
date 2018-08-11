@@ -3,7 +3,7 @@ require 'json'
 
 # API Documents
 # https://developer.riotgames.com/static-data.html
-class StaticDataApi
+class Externals::RiotGames::Api::StaticDataApi
   def initialize()
     @base_url = 'https://ddragon.leagueoflegends.com'
     @client = Faraday.new(@base_url)
