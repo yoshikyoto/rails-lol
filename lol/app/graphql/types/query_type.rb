@@ -3,8 +3,7 @@ Types::QueryType = GraphQL::ObjectType.define do
   field :versions, types[types.String] do
     description 'パッチのバージョン一覧を返す'
     resolve -> (obj, args, ctx) {
-      puts 'versions resolve'
-      repo = LoLRepository.new()
+      repo = Lol::LolRepository.new()
       return repo.versions
     }
   end
@@ -13,7 +12,7 @@ Types::QueryType = GraphQL::ObjectType.define do
     description 'すべてのチャンピオンの情報を返す'
     argument :version, types.String
     resolve -> (obj, args, ctx) {
-      repo = LoLRepository.new()
+      repo = Lol::LolRepository.new()
       version = args[:version]
       return repo.champions(version)['data']
     }
