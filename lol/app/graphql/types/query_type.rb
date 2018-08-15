@@ -1,5 +1,3 @@
-require_dependency '../../models/lol/lol_repository'
-
 Types::QueryType = GraphQL::ObjectType.define do
   name 'Query'
   field :versions, types[types.String] do

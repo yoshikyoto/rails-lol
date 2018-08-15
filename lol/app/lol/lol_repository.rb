@@ -1,8 +1,6 @@
-require_dependency '../models/api/riot_games/static_data_api'
-
-class LoLRepository
+class Lol::LolRepository
   def initialize()
-    @static_data_api = StaticDataApi.new()
+    @static_data_api = Externals::RiotGames::Api::StaticDataApi.new
   end
 
   def versions()
