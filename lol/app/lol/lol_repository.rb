@@ -3,7 +3,7 @@ class Lol::LolRepository
     @static_data_api = Externals::RiotGames::Api::StaticDataApi.new
   end
 
-  def versions()
+  def latest_versions()
     @static_data_api.versions()
   end
 
