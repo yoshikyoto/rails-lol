@@ -19,6 +19,18 @@ $ cd lol
 $ bundle install
 ```
 
+## migration
+
+```
+rake:db migrate
+```
+
+when rollback
+
+```
+rake:db rollback
+```
+
 ## Start rails server for debug on local
 
 ```
@@ -31,4 +43,3 @@ $ ./bin/rails server
 ```
 $ ./bin/rails test
 ```
-
