@@ -10,6 +10,11 @@ class Batch::LolApiCrawler
     champion_id = champion_ids[0]
     c = repo.latest_champion("8.14.1", champion_id)
     puts c
+    puts c.id
+    puts c.name
+    puts c.region
+    puts c.version
+    puts c.body
     model = Models::Champion.new
   end
 

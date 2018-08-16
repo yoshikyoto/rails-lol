@@ -35,6 +35,9 @@ class Externals::RiotGames::Api::StaticDataApi
       request.url '/cdn/' + version + '/data/' + region + '/champion/' + id + '.json'
     end
     json = JSON.parse(response.body)
-    json['data']
+    data = json['data'][id]
+    name = data['name']
+    body = JSON.generate(data)
+    Lol::Champion.new(id, name, region, version, body)
   end
 end
