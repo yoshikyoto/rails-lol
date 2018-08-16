@@ -29,4 +29,12 @@ class Externals::RiotGames::Api::StaticDataApi
       id
     }
   end
+
+  def champion(version, region, id)
+    response = @client.get do |request|
+      request.url '/cdn/' + version + '/data/' + region + '/champion/' + id + '.json'
+    end
+    json = JSON.parse(response.body)
+    json['data']
+  end
 end
