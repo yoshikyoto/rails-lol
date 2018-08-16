@@ -20,6 +20,13 @@ class Externals::RiotGames::Api::StaticDataApi
     response = @client.get do |request|
       request.url '/cdn/' + version + '/data/' + region + '/champion.json'
     end
-    JSON.parse(response.body)
+    json = JSON.parse(response.body)
+    json['data']
+  end
+
+  def champion_ids(version, region)
+    self.champions(version, region).map{|id, item|
+      id
+    }
   end
 end

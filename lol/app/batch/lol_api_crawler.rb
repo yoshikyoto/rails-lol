@@ -7,8 +7,8 @@ class Batch::LolApiCrawler
     puts versions
     lol_service.update_versions(versions)
     repo = Lol::LolRepository.new
-    champions = repo.champions("8.14.1")
-    # puts champions
+    champion_ids = repo.latest_champion_ids("8.14.1")
+    puts champion_ids
     model = Models::Champion.new
   end
 

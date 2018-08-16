@@ -7,7 +7,7 @@ class Lol::LolRepository
     @static_data_api.versions()
   end
 
-  def champions(version)
-    @static_data_api.champions(version, 'ja_JP')
+  def latest_champion_ids(version)
+    @static_data_api.champion_ids(version, 'ja_JP')
   end
 end
