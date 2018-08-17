@@ -1,10 +1,14 @@
 class Lol::LolService
   def initialize()
-    @lol_repository = LolRepository.new
+    @lol_repository = Lol::LolRepository.new
   end
 
   def versions()
     @lol_repository.versions
+  end
+
+  def champion_history(champion_id)
+    @lol_repository.champion_history(champion_id)
   end
 
   # パッチ名が lolpatch_7.20 のようになっているものがあるのでそれは除外する

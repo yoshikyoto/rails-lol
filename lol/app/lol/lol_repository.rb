@@ -1,3 +1,5 @@
+require 'json'
+
 class Lol::LolRepository
   def initialize()
     @static_data_api = Externals::RiotGames::Api::StaticDataApi.new
@@ -7,6 +9,19 @@ class Lol::LolRepository
     models = Models::Champion.group('version').select('version')
     models.map{ |model|
       model.version
+    }
+  end
+
+  def champion_history(id)
+    models = Models::Champion.where(id: id)
+    models.map{ |model|
+      Lol::Champion.new(
+        model.id,
+        model.name_jp,
+        'ja_JP',
+        model.version,
+        JSON.parse(model.body)
+      )
     }
   end
 

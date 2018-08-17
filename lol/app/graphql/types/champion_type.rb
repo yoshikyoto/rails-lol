@@ -1,23 +1,33 @@
 Types::ChampionType = GraphQL::ObjectType.define do
   name 'Champion'
 
-  field :name, types.String do
-    description 'チャンピオンの名前'
-    resolve -> (obj, args, ctx) {
-      # obj[0] には 'MonkeyKong', 'Jax' などのキーが
-      # obj[1] がチャンピオンデータの配列になっている
-      champion_data = obj[1]
-      return champion_data['name']
+  field :id, types.String do
+    description 'チャンピオンのID'
+    resolve -> (champion, args, ctx) {
+      return champion.id
     }
   end
 
-  field :iconUrl, types.String do
-    description 'チャンピオンのアイコン画像URL'
-    resolve -> (obj, args, ctx) {
-      champion_data = obj[1]
-      version = args[:version]
-      puts args
-      return champion_data['image']['full']
+  field :name, types.String do
+    description 'チャンピオンの名前'
+    resolve -> (champion, args, ctx) {
+      return champion.name
     }
   end
+
+  field :version, types.String do
+    description 'パッチのバージョン'
+    resolve -> (champion, args, ctx) {
+      return champion.version
+    }
+  end
+
+  field :body, types.String do
+    description 'チャンピオンのデータ'
+    resolve -> (champion, args, ctx) {
+      puts champion.body
+      return champion.body
+    }
+  end
+
 end

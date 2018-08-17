@@ -8,13 +8,14 @@ Types::QueryType = GraphQL::ObjectType.define do
     }
   end
 
-  field :champions, types[Types::ChampionType] do
-    description 'すべてのチャンピオンの情報を返す'
-    argument :version, types.String
+  field :champion, types[Types::ChampionType] do
+    description 'チャンピオンの情報をバージョンごとに返す'
+    argument :id, types.String
     resolve -> (obj, args, ctx) {
-      repo = Lol::LolRepository.new()
-      version = args[:version]
-      return repo.champions(version)['data']
+      lol_service = Lol::LolService.new
+      id = args[:id]
+      champion_history = lol_service.champion_history(id)
+      return champion_history
     }
   end
 end
