@@ -17,15 +17,19 @@ class Lol::LolRepository
   end
 
   def save(champion)
-    model = Models::Champion.find_or_create_by(id: champion.id);
-    model.update_attributes(
+    if Models::Champion.exists?(id: champion.id, version: champion.version)
+      return
+    end
+    model = Models::Champion.new(
+      id: champion.id,
       name_jp: champion.name,
       version: champion.version,
       body: champion.body
     )
+    model.save
   end
 
   def exists(version)
-
+    Models::Champion.exists?(version: version)
   end
 end
