@@ -3,6 +3,13 @@ class Lol::LolRepository
     @static_data_api = Externals::RiotGames::Api::StaticDataApi.new
   end
 
+  def versions()
+    models = Models::Champion.group('version').select('version')
+    models.map{ |model|
+      model.version
+    }
+  end
+
   ## latest_xxx 系のメソッドはAPIから最新の情報を取得してくるメソッド
   def latest_versions()
     @static_data_api.versions()

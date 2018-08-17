@@ -3,6 +3,10 @@ class Lol::LolService
     @lol_repository = LolRepository.new
   end
 
+  def versions()
+    @lol_repository.versions
+  end
+
   # パッチ名が lolpatch_7.20 のようになっているものがあるのでそれは除外する
   # パッチ 0.x.x のものは除外する
   def is_valid_version(version)

@@ -3,8 +3,8 @@ Types::QueryType = GraphQL::ObjectType.define do
   field :versions, types[types.String] do
     description 'パッチのバージョン一覧を返す'
     resolve -> (obj, args, ctx) {
-      repo = Lol::LolRepository.new()
-      return repo.versions
+      lol_service = Lol::LolService.new
+      return lol_service.versions
     }
   end
 
@@ -15,17 +15,6 @@ Types::QueryType = GraphQL::ObjectType.define do
       repo = Lol::LolRepository.new()
       version = args[:version]
       return repo.champions(version)['data']
-    }
-  end
-
-  # TODO: remove me
-  field :testField, types.String do
-    description "An example field added by the generator"
-    resolve -> (obj, args, ctx) {
-      puts obj
-      puts args
-      puts ctx
-      "Hello World!"
     }
   end
 end
