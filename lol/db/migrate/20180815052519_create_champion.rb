@@ -4,7 +4,7 @@ class CreateChampion < ActiveRecord::Migration[5.1]
       t.string :id, 'PRIMARY_KEY'
       t.string :name_jp, index: true
       t.string :version, index: true
-      t.string :body
+      t.text :body, limit: 65535
     end
     execute "ALTER TABLE champion ADD PRIMARY KEY (id);"
   end
