@@ -17,4 +17,18 @@ class Lol::LolService
     }
     return versions
   end
+
+  def latest_champion(version, champion)
+    @lol_repository.latest_champion(version, champion)
+  end
+
+  def latest_champion_ids(version)
+    @lol_repository.latest_champion_ids(version)
+  end
+
+  def save_champions(champions)
+    for champion in champions do
+      @lol_repository.save(champion)
+    end
+  end
 end

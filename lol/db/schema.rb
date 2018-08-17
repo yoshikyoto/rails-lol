@@ -13,10 +13,9 @@
 ActiveRecord::Schema.define(version: 20180815052519) do
 
   create_table "champion", id: :string, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "PRIMARY_KEY"
     t.string "name_jp"
     t.string "version"
-    t.string "body"
+    t.text "body"
     t.index ["name_jp"], name: "index_champion_on_name_jp"
     t.index ["version"], name: "index_champion_on_version"
   end

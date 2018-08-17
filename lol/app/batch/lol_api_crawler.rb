@@ -1,21 +1,23 @@
 class Batch::LolApiCrawler
 
   def self.execute
-    puts "start"
-    lol_service = Lol::LolService.new
-    versions = lol_service.latest_versions
-    puts versions
-    repo = Lol::LolRepository.new
-    champion_ids = repo.latest_champion_ids("8.14.1")
-    champion_id = champion_ids[0]
-    c = repo.latest_champion("8.14.1", champion_id)
-    puts c
-    puts c.id
-    puts c.name
-    puts c.region
-    puts c.version
-    puts c.body
-    model = Models::Champion.new
+    puts "start update champion data"
+    @@lol_service = Lol::LolService.new
+    versions = @@lol_service.latest_versions
+    for version in versions do
+      puts 'update data for version:' + version
+      champion_ids = @@lol_service.latest_champion_ids(version)
+      champions = self.get_champions_by(version, champion_ids)
+      @@lol_service.save_champions(champions)
+    end
   end
 
+  def self.get_champions_by(version, champion_ids)
+    champion_ids.map{ |id|
+      champion = @@lol_service.latest_champion(version, id)
+      puts 'get champion data:' + champion.id + ' name:' + champion.name + ' datasize:' + champion.data.length
+      sleep(0.1) # APIに負荷をかけすぎないようにsleep
+      champion
+    }
+  end
 end
