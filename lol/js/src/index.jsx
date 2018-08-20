@@ -1,31 +1,12 @@
 // @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ApolloClient from 'apollo-boost';
-import gql from 'graphql-tag';
 
 import ChampionListItem from './ChampionListItem';
+import client from './graphql/client/Client';
+import ChampionHistory from './graphql/query/ChampionHistory';
 
-const csrfToken = document.querySelector('meta[name=csrf-token]').getAttribute('content');
-const client = new ApolloClient({
-  request: (operation) => {
-    operation.setContext({
-      headers: {
-        'X-CSRF-Token': csrfToken,
-      },
-    });
-  },
-});
-const query = gql`
-query {
-  champion(id: Aatrox) {
-    id
-    name
-    version
-  }
-}`;
-
-client.query({ query })
+client.query({ query: ChampionHistory })
   .then(console.log)
   .catch(console.error);
 

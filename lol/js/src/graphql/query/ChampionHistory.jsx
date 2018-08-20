@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 const ChampionHistory = gql`
 query {
@@ -7,7 +7,6 @@ query {
     name
     version
   }
-}
-`;
+}`;
 
-export default ChampionHistory
+export default ChampionHistory;
