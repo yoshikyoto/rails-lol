@@ -1,7 +1,10 @@
 {
   "name": "lol",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
   "scripts": {
     "build:dev": "webpack --config webpack.config.js",
     "lint:js": "eslint './js/src/*.{js,jsx}'",
@@ -13,6 +16,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^5.4.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.0",
