@@ -1,14 +1,11 @@
 // @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ApolloProvider } from 'react-apollo';
 
-import ChampionListItem from './ChampionListItem';
+import ChampionHistory from './component/ChampionHistory';
 import client from './graphql/client/Client';
-import ChampionHistory from './graphql/query/ChampionHistory';
 
-client.query({ query: ChampionHistory })
-  .then(console.log)
-  .catch(console.error);
 
 export class Render {
   constructor(targetId: string) {
@@ -20,7 +17,12 @@ export class Render {
   }
 
   render(target :HTMLElement) {
-    ReactDOM.render(<ChampionListItem name="Aatrox" />, target);
+    ReactDOM.render(
+      <ApolloProvider client={client}>
+        <ChampionHistory />
+      </ApolloProvider>,
+      target,
+    );
   }
 }
 

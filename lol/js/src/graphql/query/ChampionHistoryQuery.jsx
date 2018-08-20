@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
-const ChampionHistory = gql`
-query {
+const ChampionHistoryQuery = gql`
+{
   champion(id: Aatrox) {
     id
     name
@@ -9,4 +9,4 @@ query {
   }
 }`;
 
-export default ChampionHistory;
+export default ChampionHistoryQuery;
