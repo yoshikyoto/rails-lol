@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
   def index
     repo = Lol::LolRepository.new
-    champions = repo.champions '8.11.1'
+    versions = repo.versions
     # puts champions
-    render html: champions
+    render html: versions
   end
 end
