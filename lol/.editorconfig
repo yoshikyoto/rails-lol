@@ -1,3 +1,8 @@
-[*.{js,json}]
+trim_trailing_whitespace = true
+end_of_line = lf
 indent_style = space
+charset = utf-8
+insert_final_newline = true
+
+[*.{js,json}]
 indent_size = 2
