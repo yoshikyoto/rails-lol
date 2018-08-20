@@ -5,7 +5,7 @@ const dist = path.join(__dirname, 'app/assets/javascripts');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(src, 'index.js'),
+  entry: path.resolve(src, 'index.jsx'),
   output: {
     path: dist,
     filename: 'index.bundle.js'
