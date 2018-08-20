@@ -1,5 +1,8 @@
 {
   "name": "lol",
   "main": "index.js",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0"
+  }
 }
