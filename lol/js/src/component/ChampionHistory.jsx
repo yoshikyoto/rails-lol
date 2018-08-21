@@ -10,8 +10,7 @@ const ChampionHistory = () => (
         return <div>Loading...</div>;
       }
       console.log(data);
-      const championHistory = data.champion;
-      const list = championHistory.map(champion => <ChampionHistoryItem props={champion} />);
+      const list = data.champion.map(champion => <ChampionHistoryItem champion={champion} />);
       return (
         <div>
           Loaded!

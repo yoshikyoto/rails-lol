@@ -1,17 +1,22 @@
-// @flow
 import React from 'react';
 
-type Props = {
+type Champion = {
   name: string;
+  version: string;
+}
+
+type Props = {
+  champion: Champion;
 }
 
 const ChampionHistoryItem = (props: Props) => {
-  console.log(props.name);
-  const { name } = props;
+  const { champion } = props;
+  const { name, version } = champion;
   return (
     <div>
       <div>History</div>
       <div>{name}</div>
+      <div>{version}</div>
     </div>
   );
 };
