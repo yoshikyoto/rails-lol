@@ -34,10 +34,17 @@ Types::ChampionType = GraphQL::ObjectType.define do
     }
   end
 
+  field :stats, Types::StatsType do
+    description 'ステータス'
+    resolve -> (champion, args, ctx) {
+      return champion.stats
+    }
+  end
+
+
   field :body, types.String do
     description 'チャンピオンのデータ'
     resolve -> (champion, args, ctx) {
-      puts champion.body
       return champion.body
     }
   end

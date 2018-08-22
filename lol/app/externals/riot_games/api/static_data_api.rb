@@ -30,6 +30,7 @@ class Externals::RiotGames::Api::StaticDataApi
     }
   end
 
+  # https://ddragon.leagueoflegends.com/cdn/8.14.1/data/ja_JP/champion/Aatrox.json
   def champion(version, region, id)
     response = @client.get do |request|
       request.url '/cdn/' + version + '/data/' + region + '/champion/' + id + '.json'

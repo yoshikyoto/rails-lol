@@ -20,7 +20,7 @@ class Lol::LolRepository
         model.name_jp,
         'ja_JP',
         model.version,
-        JSON.parse(model.body)
+        model.body
       )
     }
   end
