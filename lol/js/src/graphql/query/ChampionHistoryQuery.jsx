@@ -1,9 +1,9 @@
 import gql from 'graphql-tag';
 
 const ChampionHistoryQuery = gql`
-{
-  champion(id: Aatrox) {
-    id
+query ChampionHistory($id: String!) {
+  champion(id: $id) {
+    _id
     name
     version
   }

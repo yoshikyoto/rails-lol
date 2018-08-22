@@ -6,6 +6,7 @@ import { ApolloProvider } from 'react-apollo';
 import ChampionHistory from './component/ChampionHistory';
 import client from './graphql/client/Client';
 
+const championId = 'Aatrox';
 
 export class Render {
   constructor(targetId: string) {
@@ -19,7 +20,7 @@ export class Render {
   render(target :HTMLElement) {
     ReactDOM.render(
       <ApolloProvider client={client}>
-        <ChampionHistory />
+        <ChampionHistory id={championId} />
       </ApolloProvider>,
       target,
     );

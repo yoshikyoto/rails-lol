@@ -1,11 +1,13 @@
+// @flow
 import React from 'react';
 import { Query } from 'react-apollo';
 import ChampionHistoryQuery from '../graphql/query/ChampionHistoryQuery';
 import ChampionHistoryItem from './ChampionHistoryItem';
 
-const ChampionHistory = () => (
-  <Query query={ChampionHistoryQuery}>
+const ChampionHistory = props => (
+  <Query query={ChampionHistoryQuery} variables={props}>
     {({ loading, data }) => {
+      console.log(props);
       if (loading) {
         return <div>Loading...</div>;
       }
@@ -20,5 +22,6 @@ const ChampionHistory = () => (
     }}
   </Query>
 );
+
 
 export default ChampionHistory;
