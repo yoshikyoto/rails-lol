@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   post '/graphql', to: 'graphql#execute'
   get '/', to: 'application#index'
+  get '/champions/:id', to: 'application#index'
 end

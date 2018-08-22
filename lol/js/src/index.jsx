@@ -2,11 +2,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import ChampionHistory from './component/ChampionHistory';
 import client from './graphql/client/Client';
-
-const championId = 'Aatrox';
 
 export class Render {
   constructor(targetId: string) {
@@ -20,7 +19,9 @@ export class Render {
   render(target :HTMLElement) {
     ReactDOM.render(
       <ApolloProvider client={client}>
-        <ChampionHistory id={championId} />
+        <BrowserRouter>
+          <Route path="/champions/:id" component={ChampionHistory} />
+        </BrowserRouter>
       </ApolloProvider>,
       target,
     );
