@@ -7,4 +7,10 @@ Types::SpellType = GraphQL::ObjectType.define do
     }
   end
 
+  field :description, types.String do
+    resolve -> (spell, args, ctx) {
+      return spell.description
+    }
+  end
+
 end

@@ -1,5 +1,5 @@
 class Lol::Spell
-  attr_reader :name
+  attr_reader :id, :name, :description
   def initialize(
         id,
         name,
