@@ -1,7 +1,7 @@
 require 'json'
 
 class Lol::Champion
-  attr_reader :id, :name, :region, :version, :body, :stats
+  attr_reader :id, :name, :region, :version, :body, :stats, :spells
   def initialize(id, name, region, version, body)
     @id = id
     @name = name
@@ -31,5 +31,12 @@ class Lol::Champion
       @parsed_body['stats']['attackspeedoffset'],
       @parsed_body['stats']['attackspeedperlevel']
     )
+    @spells = @parsed_body['spells'].map{|item|
+      Lol::Spell.new(
+        item['id'],
+        item['name'],
+        item['description']
+      )
+    }
   end
 end

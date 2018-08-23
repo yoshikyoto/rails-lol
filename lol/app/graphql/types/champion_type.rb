@@ -41,6 +41,11 @@ Types::ChampionType = GraphQL::ObjectType.define do
     }
   end
 
+  field :spells, types[Types::SpellType] do
+    resolve -> (champion, args, ctx) {
+      champion.spells
+    }
+  end
 
   field :body, types.String do
     description 'チャンピオンのデータ'
