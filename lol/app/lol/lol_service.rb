@@ -1,14 +1,17 @@
 class Lol::LolService
   def initialize()
     @lol_repository = Lol::LolRepository.new
+    @champion_comparator = Lol::ChampionComparator.new
   end
 
   def versions()
     @lol_repository.versions
   end
 
+  # あるチャンピオンに対してそのチャンピオンのパッチ一覧を取得する
   def champion_history(champion_id)
-    @lol_repository.champion_history(champion_id)
+    champions = @lol_repository.champion_history(champion_id)
+    @champion_comparator.sort_by_version(champions)
   end
 
   # パッチ名が lolpatch_7.20 のようになっているものがあるのでそれは除外する
@@ -42,7 +45,6 @@ class Lol::LolService
       @lol_repository.save(champion)
     end
   end
-
 
   def need_to_get_latest_data(version)
     @lol_repository.exists(version)

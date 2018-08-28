@@ -6,6 +6,19 @@ query ChampionHistory($id: String!) {
     _id
     name
     version
+    stats {
+      hp
+      mp
+      movespeed
+      armor
+      spellblock
+      attackrange
+      hpregen
+      mpregen
+      crit
+      attackdamage
+      attackspeed
+    }
   }
 }`;
 
